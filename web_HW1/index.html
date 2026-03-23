@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>統聯客運 Ubus - 系統等候中</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>統聯客運 <span>Ubus</span></h1>
+        </div>
+        
+        <div class="message">
+            <h2>系統目前較為繁忙，請稍候</h2>
+            <p>我們正在努力為您處理連線請求，請勿關閉或重新整理此頁面，以免重新排隊。</p>
+        </div>
+
+        <div class="animation-area">
+            <div class="bus">🚌</div>
+            <div class="road"></div>
+        </div>
+
+        <div class="status">
+            <p>預計等候時間： <span id="countdown">30</span> 秒</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
