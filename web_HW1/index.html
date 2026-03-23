@@ -9,7 +9,9 @@
 <body>
     <div class="overlay"></div>
 
-    <div class="glass-container">
+    <button id="theme-toggle" class="theme-toggle">🌙 進入夜間模式</button>
+
+    <div class="glass-container" id="glass-card">
         <div class="header">
             <h1>統聯客運 <span>Ubus</span></h1>
         </div>
@@ -20,7 +22,10 @@
         </div>
 
         <div class="animation-area">
-            <div class="bus">🚌</div>
+            <div class="bus" id="interactive-bus">
+                🚌
+                <span class="honk" id="honk-text"></span>
+            </div>
             <div class="road"></div>
         </div>
 
