@@ -1,0 +1,92 @@
+/* 基本重置與排版 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* 主卡片容器 */
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    border-top: 6px solid #008B45; /* 統聯經典綠色 */
+}
+
+/* 標題與訊息設計 */
+.header h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.header span {
+    color: #008B45;
+}
+
+.message h2 {
+    font-size: 20px;
+    color: #e63946; /* 使用醒目的紅色提醒目前繁忙 */
+    margin-bottom: 12px;
+}
+
+.message p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 巴士動畫設計 */
+.animation-area {
+    margin: 40px 0;
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+}
+
+.bus {
+    font-size: 45px;
+    position: absolute;
+    left: -60px; /* 從畫面外開始 */
+    bottom: 5px;
+    animation: drive 3.5s linear infinite;
+}
+
+.road {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #d1d1d1;
+    border-radius: 2px;
+}
+
+/* 定義巴士行駛的關鍵影格 */
+@keyframes drive {
+    0% { left: -60px; }
+    100% { left: 100%; }
+}
+
+/* 倒數計時器設計 */
+.status {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #eef7f2;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+#countdown {
+    color: #008B45;
+    font-size: 26px;
+}
