@@ -1,54 +1,71 @@
-/* 基本重置與排版 */
+/* 基本重置與背景設定 */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
-    background-color: #f4f7f6;
+    /* 使用高質感的公路背景圖 */
+    background: url('https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #333;
+    overflow: hidden;
 }
 
-/* 主卡片容器 */
-.container {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+/* 黑色半透明遮罩，讓文字與卡片更易讀 */
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* 毛玻璃質感卡片 */
+.glass-container {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     text-align: center;
-    max-width: 500px;
+    max-width: 450px;
     width: 90%;
-    border-top: 6px solid #008B45; /* 統聯經典綠色 */
+    border-top: 6px solid #008B45; 
 }
 
-/* 標題與訊息設計 */
+/* 標題與文字設計 */
 .header h1 {
-    color: #333;
+    color: #2c3e50;
     margin-bottom: 20px;
-    font-size: 28px;
+    font-size: 32px;
+    letter-spacing: 2px;
 }
 
 .header span {
     color: #008B45;
+    font-weight: 900;
 }
 
 .message h2 {
-    font-size: 20px;
-    color: #e63946; /* 使用醒目的紅色提醒目前繁忙 */
-    margin-bottom: 12px;
+    font-size: 22px;
+    color: #e63946;
+    margin-bottom: 10px;
 }
 
 .message p {
     font-size: 15px;
-    color: #666;
-    line-height: 1.6;
+    color: #555;
+    height: 24px; /* 固定高度避免文字切換時跳動 */
+    transition: opacity 0.3s ease;
 }
 
-/* 巴士動畫設計 */
+/* 巴士動畫 */
 .animation-area {
-    margin: 40px 0;
+    margin: 30px 0;
     position: relative;
     height: 60px;
     overflow: hidden;
@@ -57,7 +74,7 @@ body {
 .bus {
     font-size: 45px;
     position: absolute;
-    left: -60px; /* 從畫面外開始 */
+    left: -60px;
     bottom: 5px;
     animation: drive 3.5s linear infinite;
 }
@@ -67,26 +84,68 @@ body {
     bottom: 0;
     width: 100%;
     height: 4px;
-    background-color: #d1d1d1;
+    background-color: #bdc3c7;
     border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* 定義巴士行駛的關鍵影格 */
 @keyframes drive {
-    0% { left: -60px; }
-    100% { left: 100%; }
+    0% { left: -60px; transform: translateY(0); }
+    50% { transform: translateY(-2px); } /* 增加微小的顛簸感 */
+    100% { left: 100%; transform: translateY(0); }
 }
 
-/* 倒數計時器設計 */
+/* 進度條設計 */
+.progress-wrapper {
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #008B45, #2ecc71);
+    border-radius: 10px;
+    transition: width 1s linear;
+}
+
+/* 狀態與按鈕 */
 .status {
-    font-size: 18px;
-    font-weight: bold;
-    background-color: #eef7f2;
-    padding: 15px;
-    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 25px;
+    color: #333;
 }
 
 #countdown {
     color: #008B45;
-    font-size: 26px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.retry-btn {
+    background-color: transparent;
+    color: #008B45;
+    border: 2px solid #008B45;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+    background-color: #008B45;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 139, 69, 0.4);
+    transform: translateY(-2px);
+}
+
+.retry-btn:active {
+    transform: translateY(0);
 }

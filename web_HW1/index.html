@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="overlay"></div>
+
+    <div class="glass-container">
         <div class="header">
             <h1>統聯客運 <span>Ubus</span></h1>
         </div>
         
         <div class="message">
             <h2>系統目前較為繁忙，請稍候</h2>
-            <p>我們正在努力為您處理連線請求，請勿關閉或重新整理此頁面，以免重新排隊。</p>
+            <p id="dynamic-text">正在為您建立安全連線...</p>
         </div>
 
         <div class="animation-area">
@@ -22,9 +24,15 @@
             <div class="road"></div>
         </div>
 
+        <div class="progress-wrapper">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
         <div class="status">
             <p>預計等候時間： <span id="countdown">30</span> 秒</p>
         </div>
+
+        <button id="retry-btn" class="retry-btn">嘗試手動重新連線</button>
     </div>
 
     <script src="script.js"></script>
